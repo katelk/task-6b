@@ -1,0 +1,26 @@
+==9179== Memcheck, a memory error detector
+==9179== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==9179== Using Valgrind-3.19.0 and LibVEX; rerun with -h for copyright info
+==9179== Command: ./test_queue
+==9179== 
+1 2 3 
+3
+2 3 4 5 
+4
+2 3 6 
+3
+3 4 5 7 8 
+5
+2 3 6 
+3
+3 4 5 9 
+4
+==9179== 
+==9179== HEAP SUMMARY:
+==9179==     in use at exit: 0 bytes in 0 blocks
+==9179==   total heap usage: 18 allocs, 18 frees, 77,056 bytes allocated
+==9179== 
+==9179== All heap blocks were freed -- no leaks are possible
+==9179== 
+==9179== For lists of detected and suppressed errors, rerun with: -s
+==9179== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

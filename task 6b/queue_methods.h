@@ -66,6 +66,7 @@ template <class T>
 list<T>& queue<T>::operator = (const list<T>& a)
 {
     if (this == &a) return *this;
+    (*this).free();
     const queue& a2 = dynamic_cast<const queue&>(a);
 
     node<T>* t = a2.head;
@@ -87,7 +88,7 @@ list<T>& queue<T>::operator = (const list<T>& a)
 template <class T>
 void queue<T>::print(std::ostream& stream) const
 {
-    node<T>* t = head;
+    node<T>* t = this->head;
     while (t != nullptr)
     {
         stream << t->data << " ";
@@ -103,11 +104,18 @@ queue<T>& queue<T>::operator = (const queue<T>& a)
     (*this).free();
 
     node<T>* t = a.head;
+
     while (t != nullptr)
     {
-        (*this).push(t->data);
+        node<T>* n = new node<T>;
+        n->data = t->data;
+        n->next = nullptr;
+        if (head == nullptr) head = n;
+        else tail->next = n;
+        tail = n;
         t = t->next;
     }
+
     return *this;
 }
 

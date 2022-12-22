@@ -24,10 +24,10 @@ public:
     virtual size_t size() const = 0;
     virtual list& operator = (const list& a) = 0;
     virtual void free() = 0;
-    friend std::ostream& operator <<(std::ostream& stream, list& a)
+    friend std::ostream& operator <<(std::ostream& os, const list& a)
     {
-        a.print(stream);
-        return stream;
+        a.print(os);
+        return os;
     }
     friend std::istream& operator >> (std::istream& in, list& a)
     {

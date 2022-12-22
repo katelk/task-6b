@@ -62,6 +62,7 @@ template <class T>
 list<T>& stack<T>::operator = (const list<T>& a)
 {
     if (this == &a) return *this;
+    (*this).free();
     const stack& a2 = dynamic_cast<const stack&>(a);
 
     node<T>* t = a2.top;

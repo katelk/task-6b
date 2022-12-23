@@ -4,7 +4,7 @@
 #include "stack.h"
 
 template <class T>
-stack<T>::stack(const stack& a) : top(new node<T>)
+stack<T>::stack(const stack<T>& a) : top(nullptr)
 {
     node<T>* t = a.top;
     node<T>** n = &top;

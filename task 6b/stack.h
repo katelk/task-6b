@@ -19,7 +19,7 @@ public:
 
     ~stack() { while (top != nullptr) (*this).pop(); }
 
-    void free() { while (top) (*this).pop(); }
+    void free() override { while (top) (*this).pop(); }
 
     void push(T e) override;
 
@@ -37,9 +37,9 @@ public:
 
     list<T>& operator = (const list<T>& a) override;
 
-    stack<T>& operator = (const stack& a);
+    stack<T>& operator = (const stack<T>& a);
 
-    stack<T>& operator = (stack&& a);
+    stack<T>& operator = (stack<T>&& a);
 
 protected:
     void print(std::ostream& stream) const override;
